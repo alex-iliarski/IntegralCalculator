@@ -8,7 +8,7 @@ def evaluate_integral(data_pts):
     num_points = len(data_pts) # number of data points
     step = (stop - start) / num_points # step size used in the Simpson method
 
-    total = 0  # result of integration, is added to incrementally
+    total = 0  # result of integration, is modified incrementally
 
     for j in range(1, int(num_points / 2)):
         total += 2 * data_pts[2 * j][1]

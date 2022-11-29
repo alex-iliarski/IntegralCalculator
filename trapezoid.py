@@ -1,10 +1,10 @@
-#Tests the Composite Simpson's Rule
+#Tests the Composite Trapezoidal Rule
 
 
 import time
 
 
-# evaluates the integral according to the formula for the Composite Simpson's Rule
+# evaluates the integral according to the formula for the Composite Trapezoidal Rule
 def evaluate_integral(data_pts):
     start_time = time.time()
 
@@ -15,19 +15,16 @@ def evaluate_integral(data_pts):
 
     total = 0  # result of integration, is modified incrementally
 
-    for j in range(1, int(num_points / 2)):
-        total += 2 * data_pts[2 * j][1]
-
-    for j in range(1, int(num_points / 2) + 1):
-        total += 4 * data_pts[(2 * j) - 1][1]
+    for j in range(1, num_points):
+        total += 2 * data_pts[j][1]
 
     total += data_pts[0][1]
     total += data_pts[-1][1]
 
-    total *= (step / 3)
+    total *= (step / 2)
 
     end_time = time.time()
-    print("Time elapsed for Composite Simpson's Rule: ")
+    print("Time elapsed for Composite Trapezoidal Rule: ")
     print(end_time - start_time)
 
     return total
